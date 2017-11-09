@@ -3,9 +3,9 @@ import { MapView } from 'expo';
 import { ActivityIndicator, ListView, Text, View, StyleSheet } from 'react-native';
 
 /*
-commit: testing map function to automatically
-display all the coordinates from api
-as map markers
+commit: changed rendering to a conditional
+statement to account for node's
+asynchronous calls
 */
 
 export default class Map extends React.Component {
@@ -36,27 +36,39 @@ export default class Map extends React.Component {
   }
 
   render() {
+    if(this.state.array != undefined){
+      return (
         <MapView
           style={{ flex: 1 }}
           initialRegion={{
-            latitude: 99,
-            longitude: -150,
+            latitude: this.state.array[99].location.coordinates[1],
+            longitude: this.state.array[99].location.coordinates[0],
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
         >
-        {
-          this.state.array.map(marker => (
-            <MapView.Marker
-              key={marker.name}
-              coordinate={{latitude: marker.location.coordinates[1], longitude: marker.location.coordinates[0]}}
-              title={marker.street_address}
-              description={"current status: " + marker.status}
-            >
-            </MapView.Marker>
-          ))
-        }
+          {
+            this.state.array.map(marker => (
+              <MapView.Marker
+                key={marker.name}
+                coordinate={{latitude: marker.location.coordinates[1], longitude: marker.location.coordinates[0]}}
+                title={marker.street_address}
+                description={"current status: " + marker.status}
+              >
+              </MapView.Marker>
+            ))
+          }
         </MapView>
+      )
+    }
+    else{
+      return(
+        <View style={styles.container}>
+          <Text>Loading Map ... </Text>
+        </View>
+      )
+    }
+  }
 }
 
 const styles = StyleSheet.create({
