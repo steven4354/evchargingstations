@@ -1,20 +1,26 @@
-/*
-moved app.js renders to the map.js to test expo features are
-working on mobile devices for iPhone and Android. and to make sure
-the import and export modules works before devloping map component
-*/
-
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { MapView } from 'expo';
+import { ActivityIndicator, ListView, Text, View, StyleSheet } from 'react-native';
 
 export default class Map extends React.Component {
-  render(){
-    return(
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app! Nice</Text>
-      </View>
-    )
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    }
   }
+
+  render() {
+        <MapView
+          style={{ flex: 1 }}
+          initialRegion={{
+            latitude: 99,
+            longitude: -150,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        >
+        </MapView>
 }
 
 const styles = StyleSheet.create({
@@ -23,5 +29,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });
