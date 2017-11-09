@@ -3,13 +3,11 @@ import { MapView } from 'expo';
 import { ActivityIndicator, ListView, Text, View, StyleSheet } from 'react-native';
 
 /*
-commit: testing mapview marker
+commit: testing react-native's build in fetch feature
 
-function:
-testing a mapview marker to make sure it works before
-using a function to automatically put all
-the volta station locations (from api) as
-markers on map
+function: to make sure fetch works to prepare
+for grabbing the station coordinates from
+volta's api
 */
 
 export default class Map extends React.Component {
@@ -19,6 +17,23 @@ export default class Map extends React.Component {
       isLoading: true
     }
   }
+
+  componentDidMount() {
+     return fetch('https://facebook.github.io/react-native/movies.json')
+       .then((response) => response.json())
+       .then((responseJson) => {
+         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+         this.setState({
+           isLoading: false,
+           dataSource: ds.cloneWithRows(responseJson.movies),
+         }, function() {
+           // do something with new state
+         });
+       })
+       .catch((error) => {
+         console.error(error);
+       });
+   }
 
   render() {
         <MapView
