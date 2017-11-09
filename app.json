@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "evchargingstations",
+    "name": "first-project",
     "description": "An empty new project",
-    "slug": "evchargingstations",
+    "slug": "first-project",
     "privacy": "public",
     "sdkVersion": "22.0.0",
     "version": "1.0.0",
@@ -18,7 +18,17 @@
       "assetExts": ["ttf", "mp4"]
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.steven.firstproject"
+    },
+    "android": {
+      "package": "com.steven.firstproject",
+      "name": "Volta Charging Stations",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyC36YKGYCF__0yT0cbGxG6DB0ft_E5B0ak"
+        }
+      }
     }
   }
 }
