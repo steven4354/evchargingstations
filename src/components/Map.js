@@ -1,11 +1,9 @@
 import React from 'react';
 import { MapView } from 'expo';
-import { ActivityIndicator, ListView, Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 /*
-commit: changed rendering to a conditional
-statement to account for node's
-asynchronous calls
+commit: code cleanup
 */
 
 export default class Map extends React.Component {
