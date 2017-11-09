@@ -2,6 +2,16 @@ import React from 'react';
 import { MapView } from 'expo';
 import { ActivityIndicator, ListView, Text, View, StyleSheet } from 'react-native';
 
+/*
+commit: testing mapview marker
+
+function:
+testing a mapview marker to make sure it works before
+using a function to automatically put all
+the volta station locations (from api) as
+markers on map
+*/
+
 export default class Map extends React.Component {
   constructor(props) {
     super(props);
@@ -20,6 +30,12 @@ export default class Map extends React.Component {
             longitudeDelta: 0.0421,
           }}
         >
+        <MapView.Marker
+          coordinate={{latitude: 99, longitude: -150}}
+          title={'test'}
+          description={'test'}
+        >
+        </MapView.Marker>
         </MapView>
 }
 
