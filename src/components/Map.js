@@ -3,11 +3,12 @@ import { MapView } from 'expo';
 import { ActivityIndicator, ListView, Text, View, StyleSheet } from 'react-native';
 
 /*
-commit: testing react-native's build in fetch feature
+commit: testing fetch calls to volta's api
 
-function: to make sure fetch works to prepare
-for grabbing the station coordinates from
-volta's api
+function: grabbing the response from volta's
+api and to see where the coordinates,
+station name/address are located inside the 
+response
 */
 
 export default class Map extends React.Component {
@@ -18,22 +19,24 @@ export default class Map extends React.Component {
     }
   }
 
-  componentDidMount() {
-     return fetch('https://facebook.github.io/react-native/movies.json')
-       .then((response) => response.json())
-       .then((responseJson) => {
-         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-         this.setState({
-           isLoading: false,
-           dataSource: ds.cloneWithRows(responseJson.movies),
-         }, function() {
-           // do something with new state
-         });
-       })
-       .catch((error) => {
-         console.error(error);
-       });
-   }
+  componentWillMount() {
+    return fetch('https://api.voltaapi.com/v1/stations')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        this.setState({
+          isLoading: false,
+          dataSource: ds.cloneWithRows(responseJson),
+          array: responseJson
+        }, function() {
+          // do something with new state
+        });
+        console.log(this.state.array[0].location.coordinates[0]);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   render() {
         <MapView
