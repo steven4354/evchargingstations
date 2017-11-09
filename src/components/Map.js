@@ -3,12 +3,9 @@ import { MapView } from 'expo';
 import { ActivityIndicator, ListView, Text, View, StyleSheet } from 'react-native';
 
 /*
-commit: testing fetch calls to volta's api
-
-function: grabbing the response from volta's
-api and to see where the coordinates,
-station name/address are located inside the 
-response
+commit: testing map function to automatically
+display all the coordinates from api
+as map markers
 */
 
 export default class Map extends React.Component {
@@ -29,7 +26,7 @@ export default class Map extends React.Component {
           dataSource: ds.cloneWithRows(responseJson),
           array: responseJson
         }, function() {
-          // do something with new state
+          console.log('state set for isLoading, dataSource, array');
         });
         console.log(this.state.array[0].location.coordinates[0]);
       })
@@ -48,12 +45,17 @@ export default class Map extends React.Component {
             longitudeDelta: 0.0421,
           }}
         >
-        <MapView.Marker
-          coordinate={{latitude: 99, longitude: -150}}
-          title={'test'}
-          description={'test'}
-        >
-        </MapView.Marker>
+        {
+          this.state.array.map(marker => (
+            <MapView.Marker
+              key={marker.name}
+              coordinate={{latitude: marker.location.coordinates[1], longitude: marker.location.coordinates[0]}}
+              title={marker.street_address}
+              description={"current status: " + marker.status}
+            >
+            </MapView.Marker>
+          ))
+        }
         </MapView>
 }
 
