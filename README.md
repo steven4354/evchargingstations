@@ -18,8 +18,6 @@ Xcode will also need to be installed if you are testing using the iOS simulator
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
 ```
 cd <project-file>
 
