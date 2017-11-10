@@ -44,4 +44,3 @@ Once in the project on the expo XDE, click the open iOS simulator (for Macs) or 
 
 ![Alt text](./screenshot1.png?raw=true "screenshot1.png")
 ![Alt text](./screenshot2.png?raw=true "screenshot2.png")
-![Alt text](./screenshot3.png?raw=true "screenshot3.png")
