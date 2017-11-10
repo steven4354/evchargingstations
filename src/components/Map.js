@@ -14,10 +14,8 @@ export default class Map extends React.Component {
     return fetch('https://api.voltaapi.com/v1/stations')
       .then((response) => response.json())
       .then((responseJson) => {
-        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.setState({
           isLoading: false,
-          dataSource: ds.cloneWithRows(responseJson),
           array: responseJson
         }, function() {
           console.log('state set for isLoading, dataSource, array');
