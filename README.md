@@ -2,6 +2,10 @@
 
 This project is an Android and iOS application for displaying Volta's network of EV charging stations
 
+![Alt text](./screenshot1.png?raw=true "screenshot1.png")
+![Alt text](./screenshot2.png?raw=true "screenshot2.png")
+![Alt text](./screenshot3.png?raw=true "screenshot3.png")
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
