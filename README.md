@@ -2,10 +2,6 @@
 
 This project is an Android and iOS application for displaying Volta's network of EV charging stations
 
-![Alt text](./screenshot1.png?raw=true "screenshot1.png")
-![Alt text](./screenshot2.png?raw=true "screenshot2.png")
-![Alt text](./screenshot3.png?raw=true "screenshot3.png")
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -43,3 +39,9 @@ Once in the project on the expo XDE, click the open iOS simulator (for Macs) or 
 
 * Utilized React Native and Expo documentation for building apps and the Airbnb React Native Mapview for Maps
 * Thanks to Volta for their API of charging stations
+
+## Screenshot of App in Action
+
+![Alt text](./screenshot1.png?raw=true "screenshot1.png")
+![Alt text](./screenshot2.png?raw=true "screenshot2.png")
+![Alt text](./screenshot3.png?raw=true "screenshot3.png")
